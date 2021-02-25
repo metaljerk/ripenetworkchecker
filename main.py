@@ -20,5 +20,5 @@ def iplist(url):
         print(ipv4)
 
 
-if __name__ == "__main__":
-    iplist(url)
+# if __name__ == "__main__":
+#     iplist(url)
