@@ -13,3 +13,12 @@ args = parser.parse_args()
 # print(ip_address("1.1.2.2") in net)
  
 url = "https://stat.ripe.net/data/country-resource-list/data.json?resource=US&v4_format=prefix"
+response = requests.get(url)
+json_data = response.json()
+def iplist(url):
+    for ipv4 in json_data['data']['resources']['ipv4']:
+        print(ipv4)
+
+
+if __name__ == "__main__":
+    iplist(url)
