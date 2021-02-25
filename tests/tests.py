@@ -1,5 +1,5 @@
-from netaddr import IPNetwork, IPAddress
 import unittest
+from netaddr import IPNetwork, IPAddress
 
 class Tests(unittest.TestCase):
 

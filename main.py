@@ -1,5 +1,7 @@
 from ipaddress import ip_network, ip_address
 import argparse, requests
+from netaddr import IPNetwork, IPAddress
+
 import json
 
 parser = argparse.ArgumentParser(description='Determine if a given IP is in the list of Ripe Network CIDRs.')
@@ -14,11 +16,19 @@ args = parser.parse_args()
  
 url = "https://stat.ripe.net/data/country-resource-list/data.json?resource=US&v4_format=prefix"
 response = requests.get(url)
-json_data = response.json()
+data = response.json()
 def iplist(url):
-    for ipv4 in json_data['data']['resources']['ipv4']:
-        print(ipv4)
+    for ipv4 in data['data']['resources']['ipv4']:
+        yield ipv4
 
+with open("iplist.json", "w+") as file:
+        file.writelines('\n'.join(iplist(file)))
 
-# if __name__ == "__main__":
-#     iplist(url)
+def check_ip():        
+    if IPAddress(iplist(url)) in IPNetwork("64.190.60.0/23"):
+        print(True)
+    else: 
+        print(False)
+
+if __name__ == "__main__":
+    iplist(url)
