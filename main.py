@@ -22,18 +22,17 @@ def iplist(url):
         yield ipv4
 
 with open("iplist.json", "w+") as file:
-        file.writelines((iplist(file)))
+        file.writelines(('\n'.join(iplist(file))))
 
 def check_ip():
     with open("iplist.json", "r") as checkfile:
         # for line in checkfile:
         #     line.strip()
-        ip_list = checkfile.readlines()
-        # print(ip_list)
-        # if IPAddress("192.168.10.1") in IPNetwork(str(ip_list)):
-        #     print(True)
-        # else:
-        #     print(False)
+        ip_list = checkfile.readline()
+        if IPAddress("2.56.32.1") in IPNetwork(str(ip_list)):
+            print(True)
+        else:
+            print(False)
     # if IPAddress(iplist(url)) in IPNetwork("64.190.60.0/23"):
     #     print(True)
     # else: 
