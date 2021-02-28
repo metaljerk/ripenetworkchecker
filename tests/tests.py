@@ -14,7 +14,9 @@ class Tests(unittest.TestCase):
     def test_false(self):
         self.assertFalse(IPAddress("192.168.1.1") in IPSet(cidr))
         self.assertFalse(IPAddress("192.168.10.1") in IPSet(cidr))
-    
+
+    def test_existence(self):
+        self.assertIsNotNone(cidr)
 
 if __name__ == "__main__":
     unittest.main()
