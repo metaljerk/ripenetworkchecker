@@ -27,7 +27,6 @@ def check_ip(ip=args.ip):
             else:
                 print("IP: %s" % IPAddress(ip), "is not in the list of cidrs")
                 break
-
-
+            
 if __name__ == "__main__":
     check_ip()
