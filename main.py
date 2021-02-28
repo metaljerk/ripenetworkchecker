@@ -1,7 +1,7 @@
 from ipaddress import ip_network, ip_address
 import argparse, requests
 import ipaddress
-from netaddr import IPNetwork, IPAddress
+from netaddr import  IPAddress, IPSet
 import json
 
 parser = argparse.ArgumentParser(description='Determine if a given IP is in the list of Ripe Network CIDRs.')
@@ -21,13 +21,12 @@ with open("iplist.json", "w+") as file:
 
 def check_ip():
     with open("iplist.json", "r") as checkfile:
-        cidr = checkfile.readline()
+        cidr = checkfile.readlines()
         while True:
-            if IPAddress("2.56.164.1") in IPNetwork(cidr):
+            if IPAddress("2.57.232.1") in IPSet(cidr):
                 print(True)
                 break
             else:
-                print(cidr)
                 print(False)
                 break
 
