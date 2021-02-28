@@ -18,6 +18,9 @@ class Tests(unittest.TestCase):
     def test_existence(self):
         self.assertIsNotNone(cidr)
 
+    def test_notempty(self):
+        self.assertTrue(len(cidr))
+
 if __name__ == "__main__":
     unittest.main()
     
