@@ -24,22 +24,12 @@ def check_ip():
         cidr = checkfile.readlines()
         while True:
             if IPAddress("2.57.232.1") in IPSet(cidr):
-                print(True)
+                print("This IP is in the list of cidr ranges")
                 break
             else:
-                print(False)
+                print("This IP is not in the list of cidr ranges")
                 break
 
-
-        # if IPAddress("2.56.164.1") in IPNetwork(str(iplist)):
-        #     print(True)
-        # else:
-        #     print(False)
-    # if IPAddress(iplist(url)) in IPNetwork("64.190.60.0/23"):
-    #     print(True)
-    # else: 
-    #     print(False)
 
 if __name__ == "__main__":
     check_ip()
-    # iplist(url)
