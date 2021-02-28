@@ -3,8 +3,8 @@ import requests
 from netaddr import IPAddress, IPSet
 
 parser = argparse.ArgumentParser(description='Determine if a given IP is in the list of Ripe Network CIDRs.')
-parser.add_argument('--ip', metavar='ip', type=str,
-                    help="Enter the IP in decimal format. e.g. 192.168.1.1")
+parser.add_argument('--ip', metavar='ip', type=str, required=True,
+                    help="Checks the IP in a decimal format. e.g. 192.168.1.1")
 args = parser.parse_args()
  
 url = "https://stat.ripe.net/data/country-resource-list/data.json?resource=US&v4_format=prefix"
