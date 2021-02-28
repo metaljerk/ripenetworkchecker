@@ -17,15 +17,15 @@ def iplist(url):
 with open("iplist.json", "w+") as file:
         file.writelines('\n'.join(iplist(file)))
 
-def check_ip():
+def check_ip(ip=args.ip):
     with open("iplist.json", "r") as checkfile:
         cidr = checkfile.readlines()
         while True:
-            if IPAddress("2.57.232.1") in IPSet(cidr):
-                print("This IP is in the list of cidr ranges")
+            if IPAddress(ip) in IPSet(cidr):
+                print("IP: %s" % IPAddress(ip), "is in the list of cidrs")
                 break
             else:
-                print("This IP is not in the list of cidr ranges")
+                print("IP: %s" % IPAddress(ip), "is not in the list of cidrs")
                 break
 
 
