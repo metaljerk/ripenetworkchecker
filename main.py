@@ -1,8 +1,6 @@
-from ipaddress import ip_network, ip_address
-import argparse, requests
-import ipaddress
-from netaddr import  IPAddress, IPSet
-import json
+import argparse
+import requests
+from netaddr import IPAddress, IPSet
 
 parser = argparse.ArgumentParser(description='Determine if a given IP is in the list of Ripe Network CIDRs.')
 parser.add_argument('--ip', metavar='ip', type=str,
