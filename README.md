@@ -2,6 +2,12 @@
 
 A tool to check whether a given IP is in a list of CIDR ranges posted by RIPE Networks.
 
+To setup:
+------------
+```bash
+pip install -r requirements.txt
+```
+
 To use: 
 ------------
 ```bash
