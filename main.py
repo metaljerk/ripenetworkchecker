@@ -8,11 +8,6 @@ parser = argparse.ArgumentParser(description='Determine if a given IP is in the 
 parser.add_argument('--ip', metavar='ip', type=str,
                     help="Enter the IP in decimal format. e.g. 192.168.1.1")
 args = parser.parse_args()
-
-
-# ip = input('Whats the IP?')
-# net = ip_network(ip)
-# print(ip_address("1.1.2.2") in net)
  
 url = "https://stat.ripe.net/data/country-resource-list/data.json?resource=US&v4_format=prefix"
 response = requests.get(url)
@@ -26,11 +21,17 @@ with open("iplist.json", "w+") as file:
 
 def check_ip():
     with open("iplist.json", "r") as checkfile:
-        iplist = checkfile.readline()
-        if str(IPAddress("2.56.32.1")) in IPNetwork(iplist):
-            print(True)
-        else:
-            print(False)
+        cidr = checkfile.readline()
+        while True:
+            if IPAddress("2.56.164.1") in IPNetwork(cidr):
+                print(True)
+                break
+            else:
+                print(cidr)
+                print(False)
+                break
+
+
         # if IPAddress("2.56.164.1") in IPNetwork(str(iplist)):
         #     print(True)
         # else:

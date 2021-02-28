@@ -5,6 +5,7 @@ class Tests(unittest.TestCase):
 
     def test_true(self):
         self.assertTrue(IPAddress("64.190.60.1") in IPNetwork("64.190.60.0/23"))
+        self.assertTrue(IPAddress("2.56.32.1") in IPNetwork("2.56.32.0/22"))
 
     def test_false(self):
         self.assertFalse(IPAddress("192.168.10.1") in IPNetwork("64.190.60.0/23"))
