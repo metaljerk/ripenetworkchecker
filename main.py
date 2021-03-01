@@ -14,18 +14,18 @@ def iplist():
     for ipv4 in data['data']['resources']['ipv4']:
         yield ipv4
 
-with open("iplist.json", "w+") as file:
+with open("iplist.txt", "w+") as file:
         file.writelines('\n'.join(iplist()))
 
 def check_ip(ip=args.ip):
-    with open("iplist.json", "r") as checkfile:
+    with open("iplist.txt", "r") as checkfile:
         cidr = checkfile.readlines()
         while True:
             if IPAddress(ip) in IPSet(cidr):
-                print("IP: %s" % IPAddress(ip), "is in the list of cidrs")
+                print(f"IP {IPAddress(ip)} is in the list.")
                 break
             else:
-                print("IP: %s" % IPAddress(ip), "is not in the list of cidrs")
+                print(f"IP {IPAddress(ip)} is not in the list.")
                 break
             
 if __name__ == "__main__":

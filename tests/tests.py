@@ -2,7 +2,7 @@ import unittest
 from netaddr import IPSet, IPAddress
 
 
-with open("iplist.json", "r") as checkfile:
+with open("iplist.txt", "r") as checkfile:
     cidr = checkfile.readlines()
 
 class Tests(unittest.TestCase):
